@@ -1,53 +1,41 @@
-import Carousel from "src/components/custom/Carousel";
-import About from "src/components/custom/About";
-import IvTreatments from "src/components/custom/IvTreatments";
-import ContactUs from "src/components/custom/ContactUs";
-import Faqs from "src/components/custom/Faqs";
-import HydrationTherapy from "../assets/hydration-therapy.webp";
-import ImmunitySupport from "../assets/immunity-support.webp";
-import AltitudeAdjustment from "../assets/altitude-adjustment.webp";
-import HangoverRelief from "../assets/hangover-relief.webp";
-import MyerCocktail from "../assets/myer’s-cocktail.webp";
-import AthleticRecovery from "../assets/athletic-recovery-performance.webp";
-import BeutifyAnti from "../assets/beautify-anti-aging.webp";
+import Carousel from "src/pages/HomePage";
+import About from "src/pages/AboutusPage";
+import ContactUs from "src/pages/ContactUsPage";
+import Faqs from "src/pages/FaqsPage";
+import Landing1 from "../assets/Landing-1.jpg";
+import Landing2 from "../assets/Landing-2.jpg";
+import Landing3 from "../assets/Landing-3.jpg";
+import Landing4 from "../assets/Landing-4.jpg";
+import Complaints from "src/pages/ComplaintsPage";
+import { Route, Routes } from "react-router-dom";
 const Landing = () => {
   const content = [
     {
-      image: HydrationTherapy,
-      title: "Hydration Therapy",
+      image: Landing1,
+      title: "Total Energy Power Utilities",
     },
     {
-      image: ImmunitySupport,
-      title: "Immunity Support Drip",
+      image: Landing2,
+      title: "Gas to the business you run",
     },
     {
-      image: AltitudeAdjustment,
-      title: "Altitude Adjustment",
+      image: Landing3,
+      title: "Best Electricity Prices for your business",
     },
     {
-      image: HangoverRelief,
-      title: "Hangover Relief",
-    },
-    {
-      image: MyerCocktail,
-      title: "Myer’s Cocktail",
-    },
-    {
-      image: AthleticRecovery,
-      title: "Athletic Recovery & Performance",
-    },
-    {
-      image: BeutifyAnti,
-      title: "Beautify and Anti-Aging",
+      image: Landing4,
+      title: "Business Landline & Broadband",
     },
   ];
   return (
     <div className="landing_page">
-      <Carousel content={content} />
-      <IvTreatments />
-      <About />
-      <ContactUs />
-      <Faqs />
+      <Routes>
+        <Route path="/" element={<Carousel content={content} />}></Route>
+        <Route path="about-us" element={<About />}></Route>
+        <Route path="complaints" element={<Complaints />}></Route>
+        <Route path="faqs" element={<Faqs />}></Route>
+        <Route path="contact-us" element={<ContactUs />}></Route>
+      </Routes>
     </div>
   );
 };

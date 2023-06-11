@@ -8,11 +8,70 @@
 
 body {
   background-color: var(--body-bg);
+  overflow-x: hidden;
+}
+.innerbox {
+  width: 40%;
+  @media screen and (max-width: 768px) {
+    width: 80%;
+  }
+}
+.innerbox-image {
+  width: 40%;
+  @media screen and (max-width: 768px) {
+    width: 50%;
+  }
+}
+input {
+  border: 1px solid #dbdade;
+  border-radius: 6px;
+  padding: 10px;
+  font: inherit;
+
+  font-size: 14px;
+  font-weight: 500;
+  width: 300px;
+
+  &:focus {
+    border: 1px solid var(--primary-cyan);
+    outline: none;
+  }
+}
+
+textarea {
+  font: inherit;
+  border: 1px solid #dbdade;
+  border-radius: 6px;
+  padding: 10px;
+
+  font-size: 14px;
+  font-weight: 500;
+  width: 300px;
+
+  &:focus {
+    border: 1px solid var(--primary-cyan);
+    outline: none;
+  }
+}
+.submit-button {
+  width: 100%;
+  padding: 15px;
+  margin-top: 30px;
+  border: 1px solid gray;
+  background-color: #5defff;
+  border-radius: 5px;
+  font: inherit;
+  @media (max-width: 991px) {
+    margin: 0 auto;
+  }
+
+  &:hover {
+    background-color: var(--primary-cyan);
+  }
 }
 
 .landing_page {
-  padding: 1rem 3vw;
-  padding-top: 96px;
+  padding-top: 80px;
   min-height: 100vh;
   height: 100%;
   max-height: max-content;
@@ -29,14 +88,31 @@ body {
   object-fit: contain;
   border-radius: 12px;
 }
+
 .about {
+  padding: 1rem;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   flex-direction: column;
   gap: 18px;
+  max-width: 100vw;
+}
+.complaints {
+  padding: 1rem 3vw;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  gap: 18px;
+  width: 100%;
+  .detail {
+    max-width: 100ch;
+    text-align: center;
+  }
 }
 .treatments {
+  padding: 1rem 3vw;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -56,6 +132,7 @@ body {
 }
 
 .contact-us {
+  padding: 1rem 3vw;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -66,13 +143,52 @@ body {
     max-width: 100ch;
     text-align: center;
   }
+  .contact-us-form {
+    align-items: start;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    width: auto;
+    gap: 8px;
+  }
 }
 
 .faqs {
+  padding: 1rem 3vw;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   flex-direction: column;
   gap: 18px;
   width: 100%;
+  .faqs-data {
+    align-items: start;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    width: 100%;
+    gap: 8px;
+  }
+}
+.logo .why_chose_use_headline {
+  position: relative;
+}
+
+.why_choose_us {
+  height: 100%;
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  .why_choose_us_image {
+    position: absolute;
+    top: 0%;
+    left: 0;
+    object-fit: contain;
+    width: 40%;
+  }
 }

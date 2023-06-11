@@ -1,6 +1,8 @@
 import { useState } from "react";
-import { Link } from "react-scroll";
+import { NavLink as Link } from "react-router-dom";
 import { Fade as Hamburger } from "hamburger-react";
+import Logo from "../../assets/Logo.png";
+
 
 const Header = () => {
   const [isOpen, setOpen] = useState(false);
@@ -11,50 +13,37 @@ const Header = () => {
   };
   return (
     <header id="header">
-      <h1 className="font-family-2 t-primary-dark display3 flex-1">Vivir</h1>
+      <img className="logo" src={Logo} />
 
       {/* LARGE SCREEN NAVS */}
-      <nav className="flex-9 d-flex-row justify-start gap-48 md-hide">
-        <Link
-          to="home"
-          smooth
-          className="scroll_link font-family-1 lead t-dark-2"
-        >
+      <nav className="flex-9 d-flex-row gap-48 md-hide">
+        <Link to="/" className="font-family-1 lead t-dark-2 scroll_link">
           Home
         </Link>
-        <Link
-          to="iv-treatments"
-          offset={-100}
-          smooth
-          className="scroll_link font-family-1 lead t-dark-2"
-        >
-          IV Treatments
-        </Link>
+
         <Link
           to="about-us"
-          smooth
-          offset={-100}
-          className="scroll_link font-family-1 lead t-dark-2"
+          activeClassName="active"
+          className="font-family-1 lead t-dark-2 scroll_link"
         >
           About Us
         </Link>
         <Link
+          to="complaints"
+          className="font-family-1 lead t-dark-2 scroll_link"
+        >
+          Complaints
+        </Link>
+        <Link to="faqs" className="font-family-1 lead t-dark-2 scroll_link">
+          FAQs
+        </Link>
+        <Link
           to="contact-us"
-          smooth
-          offset={-100}
-          className="scroll_link font-family-1 lead t-dark-2"
+          className="font-family-1 lead t-dark-2 scroll_link"
         >
           Contact Us
         </Link>
-        <Link
-          to="faqs"
-          smooth
-          className="scroll_link font-family-1 lead t-dark-2"
-        >
-          FAQs
-        </Link>
       </nav>
-
       {/* SMALL SCREEN NAVS */}
       <div className="flex-9 d-flex-row justify-end gap-48 lg-hide">
         <Hamburger
@@ -64,58 +53,46 @@ const Header = () => {
           size={20}
         />
       </div>
-
       <div className={`mobile_navbar ${isOpen ? "open" : ""}`}>
         <div className="d-flex-row flex-1 header_logo">
-          <h1 className="font-family-2 t-primary-dark display1 flex-1">
-            Vivir
-          </h1>
+          <img className="header_logo" src={Logo} />
         </div>
         <div className="d-flex-column flex-6 gap-16">
           <Link
-            to="home"
-            smooth
-            offset={-100}
+            to="/"
             onClick={closeSidebar}
             className="scroll_link font-family-1 lead t-dark-2"
           >
             Home
           </Link>
-          <Link
-            to="iv-treatments"
-            offset={-100}
-            smooth
-            onClick={closeSidebar}
-            className="scroll_link font-family-1 lead t-dark-2"
-          >
-            IV Treatments
-          </Link>
+
           <Link
             to="about-us"
-            smooth
-            offset={-100}
             onClick={closeSidebar}
             className="scroll_link font-family-1 lead t-dark-2"
           >
             About Us
           </Link>
           <Link
-            to="contact-us"
-            smooth
-            offset={-100}
+            to="complaints"
             onClick={closeSidebar}
             className="scroll_link font-family-1 lead t-dark-2"
           >
-            Contact Us
+            Complaints
           </Link>
           <Link
             to="faqs"
-            smooth
-            offset={-100}
             onClick={closeSidebar}
             className="scroll_link font-family-1 lead t-dark-2"
           >
             FAQs
+          </Link>
+          <Link
+            to="contact-us"
+            onClick={closeSidebar}
+            className="scroll_link font-family-1 lead t-dark-2"
+          >
+            Contact Us
           </Link>
         </div>
       </div>

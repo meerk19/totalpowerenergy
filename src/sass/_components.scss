@@ -9,6 +9,10 @@
   position: fixed;
   background-color: var(--white);
   z-index: 12;
+  .logo{
+height: 80px;
+padding-left: 4%;
+  }
 
   .mobile_navbar {
     display: none;
@@ -28,7 +32,8 @@
       transition: all 0.5s ease-out;
       z-index: 10;
       .header_logo {
-        border-bottom: 1px solid var(--dark-2);
+        height: 60px;
+       
       }
       &.open {
         top: 0%;
@@ -56,6 +61,7 @@
 }
 
 .carousel {
+  padding: 1rem 3vw;
   height: 65vh;
   width: 100%;
   border-radius: 20px;
@@ -102,7 +108,6 @@
         left: 0%;
         right: 0%;
         height: 100%;
-        // width: 30%;
         background-color: var(--primary-cyan);
         border-radius: 50px;
         opacity: 1;
@@ -120,7 +125,7 @@
   height: 100%;
   margin-top: 2vh;
   width: 100%;
-  padding: 1rem;
+  padding: 5rem;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -128,4 +133,12 @@
   gap: 10px;
   background-color: var(--dark-2);
   z-index: 12;
+  .flogo{
+    width: 70%;
+    border-radius: 10px;
+    margin-top: 10px;
+  }
+}
+.error-text{
+  color: #ff3333;
 }

@@ -4,7 +4,26 @@
 .font-family-2 {
   font-family: "Cabinet Grotesk", sans-serif;
 }
-
+.text-2xl {
+  font-size: 1.5rem; /* 24px */
+  line-height: 2rem;
+}
+.footer-color {
+  color: #ecb62e;
+  &.logo {
+    color: white;
+  }
+  &.logo1 {
+    color: white;
+    &:hover {
+      color: var(--primary-cyan);
+      &::after {
+        width: 20%;
+        opacity: 1;
+      }
+    }
+  }
+}
 .t-primary-dark {
   color: var(--primary-dark);
 }
@@ -56,6 +75,13 @@
   @include adaptiv-line-height(46, 23);
 }
 
+.display5 {
+  font-style: normal;
+  font-weight: 500;
+  @include adaptiv-font(24, 18);
+  @include adaptiv-line-height(46, 23);
+}
+
 h1 {
   font-style: normal;
   font-weight: 500;
@@ -96,7 +122,9 @@ h6 {
   @include adaptiv-font(15, 8);
   @include adaptiv-line-height(21, 11);
 }
-
+li {
+  font-weight: 700;
+}
 // PARAGRAPHS:
 p,
 a {
@@ -172,6 +200,7 @@ a {
   transition: all 0.2s;
   &.scroll_link {
     position: relative;
+    text-decoration: none;
 
     &::after {
       content: "";
