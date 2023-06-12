@@ -8,33 +8,33 @@ const Carousel = ({ content = [] }) => {
   const showSlide = (index) => {
     return activeIndex === index;
   };
-  // const nextSlide = useCallback(() => {
-  //   const nextIndex = activeIndex === content.length - 1 ? 0 : activeIndex + 1;
-  //   setIndex(nextIndex);
-  // }, [activeIndex, content]);
+  const nextSlide = useCallback(() => {
+    const nextIndex = activeIndex === content.length - 1 ? 0 : activeIndex + 1;
+    setIndex(nextIndex);
+  }, [activeIndex, content]);
 
   const setIndex = (index) => {
     setActiveIndex(index);
   };
 
-  // const clearInt = useCallback(() => {
-  //   if (interval.current) {
-  //     clearInterval(interval.current);
-  //   }
-  // }, []);
-  // const createInt = useCallback(() => {
-  //   clearInt();
-  //   interval.current = setInterval(() => {
-  //     nextSlide();
-  //   }, 5000);
-  // }, [clearInt, nextSlide]);
+  const clearInt = useCallback(() => {
+    if (interval.current) {
+      clearInterval(interval.current);
+    }
+  }, []);
+  const createInt = useCallback(() => {
+    clearInt();
+    interval.current = setInterval(() => {
+      nextSlide();
+    }, 5000);
+  }, [clearInt, nextSlide]);
 
-  // useLayoutEffect(() => {
-  //   createInt();
-  //   () => {
-  //     clearInt();
-  //   };
-  // }, [activeIndex, createInt, clearInt]);
+  useLayoutEffect(() => {
+    createInt();
+    () => {
+      clearInt();
+    };
+  }, [activeIndex, createInt, clearInt]);
 
   const Slides = () => {
     return content.map((cont, i) => {
