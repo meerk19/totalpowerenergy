@@ -1,5 +1,4 @@
 import React, { useState, useLayoutEffect, useRef, useCallback } from "react";
-import { TransitionGroup, CSSTransition } from "react-transition-group";
 import Welcome from "../components/custom/Welcome";
 
 const Carousel = ({ content = [] }) => {
@@ -9,33 +8,75 @@ const Carousel = ({ content = [] }) => {
   const showSlide = (index) => {
     return activeIndex === index;
   };
-  const nextSlide = useCallback(() => {
-    const nextIndex = activeIndex === content.length - 1 ? 0 : activeIndex + 1;
-    setIndex(nextIndex);
-  }, [activeIndex, content]);
+  // const nextSlide = useCallback(() => {
+  //   const nextIndex = activeIndex === content.length - 1 ? 0 : activeIndex + 1;
+  //   setIndex(nextIndex);
+  // }, [activeIndex, content]);
 
   const setIndex = (index) => {
     setActiveIndex(index);
   };
 
-  const clearInt = useCallback(() => {
-    if (interval.current) {
-      clearInterval(interval.current);
-    }
-  }, []);
-  const createInt = useCallback(() => {
-    clearInt();
-    interval.current = setInterval(() => {
-      nextSlide();
-    }, 5000);
-  }, [clearInt, nextSlide]);
+  // const clearInt = useCallback(() => {
+  //   if (interval.current) {
+  //     clearInterval(interval.current);
+  //   }
+  // }, []);
+  // const createInt = useCallback(() => {
+  //   clearInt();
+  //   interval.current = setInterval(() => {
+  //     nextSlide();
+  //   }, 5000);
+  // }, [clearInt, nextSlide]);
 
-  useLayoutEffect(() => {
-    createInt();
-    () => {
-      clearInt();
-    };
-  }, [activeIndex, createInt, clearInt]);
+  // useLayoutEffect(() => {
+  //   createInt();
+  //   () => {
+  //     clearInt();
+  //   };
+  // }, [activeIndex, createInt, clearInt]);
+
+  const Slides = () => {
+    return content.map((cont, i) => {
+      let left;
+      let transform;
+      let zIndex;
+      if (i < activeIndex) {
+        left = `${(i - activeIndex) * 100}%`;
+        transform = "";
+        zIndex = -1;
+      } else if (i > activeIndex) {
+        left = `${(i - activeIndex) * 100}%`;
+        transform = "";
+        zIndex = -1;
+      } else {
+        left = `${i - activeIndex + 50}%`;
+        transform = "translate(-50%, 0%)";
+        zIndex = 1;
+      }
+      return (
+        <div
+          className="slide"
+          style={{
+            // backgroundImage: `url(${cont.image}), linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(254,254,255,0) 100%)`,
+            left,
+            transform,
+            zIndex,
+          }}
+          key={`${cont.title}-${i}`}
+        >
+          <img className="slide-background" src={cont.image} />
+
+          <h4
+            className="display1 font-family-2 t-cyan shadow-cyan"
+            style={{ textAlign: "center" }}
+          >
+            {cont.title}
+          </h4>
+        </div>
+      );
+    });
+  };
 
   const Pagination = () => {
     return content.map((cont, i) => {
@@ -48,26 +89,8 @@ const Carousel = ({ content = [] }) => {
   };
   return (
     <div className="carousel d-flex-column">
-      
       <div className="carousel" key="carousel" id="home">
-        <TransitionGroup>
-          <CSSTransition
-            key={content[activeIndex].title}
-            classNames="right-to-left"
-            timeout={1000}
-          >
-            <div
-              className="slide"
-              style={{
-                backgroundImage: `url(${content[activeIndex].image}), linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(254,254,255,0) 100%)`,
-              }}
-            >
-              <h4 className="display1 font-family-2 t-cyan shadow-cyan text-center">
-                {content[activeIndex].title}
-              </h4>
-            </div>
-          </CSSTransition>
-        </TransitionGroup>
+        {Slides()}
 
         <div className="slider_pagination_container flex-wrap">
           <Pagination />
