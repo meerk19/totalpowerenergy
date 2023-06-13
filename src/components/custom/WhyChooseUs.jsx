@@ -1,20 +1,20 @@
 import React from "react";
 import Fade from "react-reveal/Fade";
 // WhyChooseUs Image
-import shapeImg from "../../assets/companies/eclipse-rotate-shape.svg";
-import logo1 from "../../assets/companies/logo1.png";
-import logo2 from "../../assets/companies/logo2.png";
-import logo3 from "../../assets/companies/logo3.png";
-import logo4 from "../../assets/companies/logo4.png";
-import logo5 from "../../assets/companies/logo5.png";
+import shapeImg from "../../assets/eclipse-rotate-shape.svg";
+import logo1 from "../../assets/Companies/logo1.png";
+import logo2 from "../../assets/Companies/logo2.png";
+import logo3 from "../../assets/Companies/logo3.png";
+import logo4 from "../../assets/Companies/logo4.png";
+import logo5 from "../../assets/Companies/logo5.png";
 import logo6 from "../../assets/Companies/logo6.png";
-import logo8 from "../../assets/companies/logo8.png";
-import logo10 from "../../assets/companies/logo10.png";
-import logo11 from "../../assets/companies/logo11.png";
-import logo12 from "../../assets/companies/logo12.png";
-import logo13 from "../../assets/companies/logo13.png";
-import logo14 from "../../assets/companies/logo14.png";
-import logo15 from "../../assets/companies/logo15.png";
+import logo8 from "../../assets/Companies/logo8.png";
+import logo10 from "../../assets/Companies/logo10.png";
+import logo11 from "../../assets/Companies/logo11.png";
+import logo12 from "../../assets/Companies/logo12.png";
+import logo13 from "../../assets/Companies/logo13.png";
+import logo14 from "../../assets/Companies/logo14.png";
+import logo15 from "../../assets/Companies/logo15.png";
 
 const WhyChooseUs = () => {
   return (
