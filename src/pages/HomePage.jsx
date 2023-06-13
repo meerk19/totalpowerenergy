@@ -4,6 +4,7 @@ import Landing3 from "../assets/Landing-3.webp";
 import Landing4 from "../assets/Landing-4.webp";
 import Carousel from "../components/custom/Carousel";
 import Welcome from "../components/custom/Welcome";
+// LANDING 1 changed
 const HomePage = () => {
   const content = [
     {
