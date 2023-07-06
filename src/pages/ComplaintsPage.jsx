@@ -78,12 +78,12 @@ const Complaints = () => {
         {
           id: 205,
           title: "Email",
-          detail: "consumeraffairs@ofgem.gov.uk",
+          detail: "enquiry@ombudsman-services.org",
         },
         {
           id: 206,
           title: "Post",
-          detail: "Ombudsman Services: Energy, PO Box 966, Warrington WA4 9DF",
+          detail: "Ombudsman Services: Energy, P.O. Box 966, Warrington, WA4 9DF",
         },
         {
           id: 207,
